@@ -1,11 +1,8 @@
 <template>
   <div>
-    <!-- Heading -->
     <h2>Todo List</h2>
-
-    <!-- Input -->
-    <div class="d-flex mt-5">
-      <input type="text" v-model="task" placeholder="Enter task" class="w-100 form-control" />
+    <div>
+      <input type="text" v-model="task" />
       <button @click="submit">
         Add
       </button>
@@ -25,18 +22,18 @@ export default {
     return {
       task: "",
       tasks: [
-
+        
       ],
     };
   },
   methods: {
     submit() {
-      if (this.task.length === 0) return;
-        this.tasks.push({
-          name: this.task,
-          id: this.tasks.length + 1,
-          done: false,
-        });
+      if (this.task.length === 0 ) {return}
+      this.tasks.push({
+        name: this.task,
+        id: this.tasks.length + 1,
+        done: false,
+      });
       this.task = "";
     },
     toggleDone(task) {
